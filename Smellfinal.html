@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmellSync™ - Experience Digital Scents</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: #fff;
+            color: #333;
+            padding: 40px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: #f8f8f8;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #222;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            background: #007BFF;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        #message, #processing {
+            display: none;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        #processing {
+            color: #007BFF;
+        }
+        #message {
+            color: red;
+        }
+        .loader {
+            display: none;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #007BFF;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SmellSync™ - Digital Fragrance Technology</h1>
+        <p>Now you can experience your favorite scents through your device. Simply enter your details and press OK.</p>
+        <form id="smellForm">
+            <input type="text" id="userName" placeholder="Enter your name" required><br>
+            <input type="text" id="scent" placeholder="Enter your favorite perfume" required><br>
+            <button type="submit" class="btn">OK to Smell</button>
+        </form>
+        <div class="loader" id="loader"></div>
+        <p id="processing">Processing scent... Please wait.</p>
+        <p id="message"></p>
+    </div>
+    
+    <script>
+        document.getElementById('smellForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let name = document.getElementById('userName').value;
+            let perfume = document.getElementById('scent').value;
+            
+            document.querySelector('.btn').style.display = 'none';
+            document.getElementById('processing').style.display = 'block';
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('message').style.display = 'none';
+            
+            setTimeout(() => {
+                document.getElementById('processing').style.display = 'none';
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('message').style.display = 'block';
+                document.getElementById('message').innerText = `😂 April Fools! ${name}, you can't smell ${perfume} through a screen... yet!`;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
