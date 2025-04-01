@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmellSync™ - Experience Digital Scents</title>
+    <style>
+        body { font-family: 'Georgia', serif; text-align: center; padding: 50px; background: #f4f4f4; color: #333; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); }
+        h1 { color: #8B0000; }
+        .btn { display: inline-block; padding: 15px 25px; font-size: 18px; color: white; background: #8B0000; border: none; cursor: pointer; text-decoration: none; border-radius: 5px; }
+        .btn:hover { background: #600000; }
+        input { padding: 10px; width: 80%; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌸 SmellSync™ - Digital Fragrance Technology 🌿</h1>
+        <p>Experience your favorite perfume from anywhere. Simply enter your details and let the magic happen.</p>
+        <form id="smellForm">
+            <input type="text" id="userName" placeholder="Enter your name" required><br>
+            <input type="text" id="scent" placeholder="Enter your favorite perfume" required><br>
+            <button type="submit" class="btn">OK to Smell</button>
+        </form>
+        <p id="message" style="display:none; font-size: 20px; margin-top: 20px; color: red;"></p>
+    </div>
+    
+    <script>
+        document.getElementById('smellForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById('userName').value;
+            let perfume = document.getElementById('scent').value;
+            
+            console.log(`April Fool! ${name} tried to smell ${perfume}`); // Logs the prank victims
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('message').innerText = `🎉 April Fools! Digital Smells aren't real... yet! 😂`;
+        });
+    </script>
+</body>
+</html>
